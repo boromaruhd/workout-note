@@ -268,10 +268,30 @@ export default function WorkoutNote() {
         justifyContent: 'space-between',
       }}>
         {view !== 'home' ? (
-          <button onClick={() => { setView('home'); resetForm(); }} style={{
-            background: 'none', border: 'none', color: colors.text, cursor: 'pointer',
-            display: 'flex', alignItems: 'center', gap: '4px', padding: '4px',
-          }}>
+          <button
+            onClick={() => { setView('home'); resetForm(); }}
+            style={{
+              background: colors.card,
+              border: 'none',
+              color: colors.text,
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              padding: '0',
+              width: '44px',
+              height: '44px',
+              borderRadius: '12px',
+              WebkitTapHighlightColor: 'transparent',
+              transition: 'background 0.1s, transform 0.1s',
+            }}
+            onTouchStart={(e) => { e.currentTarget.style.background = colors.cardLight; e.currentTarget.style.transform = 'scale(0.92)'; }}
+            onTouchEnd={(e) => { e.currentTarget.style.background = colors.card; e.currentTarget.style.transform = 'scale(1)'; }}
+            onMouseDown={(e) => { e.currentTarget.style.background = colors.cardLight; }}
+            onMouseUp={(e) => { e.currentTarget.style.background = colors.card; }}
+            onMouseLeave={(e) => { e.currentTarget.style.background = colors.card; }}
+            aria-label="戻る"
+          >
             <ChevronLeft size={24} />
           </button>
         ) : (
